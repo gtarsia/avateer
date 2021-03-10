@@ -1,0 +1,47 @@
+{
+  "name": "avateer",
+  "version": "0.0.0",
+  "main": "esm.js",
+  "bin": "esm-cli.js",
+  "module": "src/puptest.js",
+  "files": [
+    "esm.js",
+    "src"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "esw": "esw src examples",
+    "fix": "eslint --fix src '**/*.js'",
+    "test": "nyc ava",
+    "test:watch": "ava --watch",
+    "example": "node esm-cli.js --ava-args --config ava-examples.config.js --watch examples/github.com.test.js",
+    "example:debug": "node esm-cli.js --ava-args debug --break --config ava-examples.config.js examples/github.com.test.js"
+  },
+  "devDependencies": {
+    "ava": "^3.9.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-watch-better": "^0.1.2",
+    "nyc": "^15.1.0",
+    "puppeteer": "^8.0.0"
+  },
+  "dependencies": {
+    "dummee": "^1.2.0",
+    "esm": "^3.2.25",
+    "lodash": "^4.17.21"
+  },
+  "ava": {
+    "files": [
+      "src/**/*.test.js"
+    ],
+    "require": [
+      "esm"
+    ]
+  },
+  "peerDependencies": {
+    "ava": "^3.9.0",
+    "puppeteer": "^8.0.0"
+  }
+}
